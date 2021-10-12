@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Poppins;
+    }
+    h1 {
+      font-size: 50px;
+      font-family: Audiowide;
+    }
+    p {
+      font-size: 24px;
+      line-height: 50px;
+    }
+    .navbar {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      height: 70px;
+
+      z-index: 1;
+    }
+    @media only screen and (max-width: 600px) {
+      body {
+        background-color: lightblue;
+      }
+    }
+    .navbar .logo {
+      letter-spacing: 5px;
+    }
+    .nav {
+      display: flex;
+      justify-content: right;
+      list-style: none;
+      margin-right: 15%;
+    }
+    .nav li {
+      font-weight: bold;
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+    .nav li:hover {
+      border-bottom-style: solid;
+      border-bottom-color: rgb(18, 163, 18);
+    }
+    .logo {
+      flex: 1 1 auto;
+      margin-left: 10%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      font-size: 35px;
+    }
+    img {
+      width: 20%;
+    }
+    a {
+      margin: 15px;
+      color: #000;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    a:hover {
+      color: #000;
+    }
+    .banner-area {
+      position: relative;
+      background-image: url("pexels-stephan-seeber-10542222.jpg");
+      width: 100%;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .about-area,
+    .contact-area {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%;
+      height: 700px;
+    }
+    .text-part {
+      width: 65%;
+      height: 80%;
+    }
+    .about-area {
+      background-color: #fefefe;
+    }
+    .port-area {
+      background-color: #262626;
+      color: #fff;
+    }
+    .service-area {
+      background-color: #fefefe;
+    }
+    .contact-area {
+      background-color: #262626;
+      color: #fff;
+    }
+    <!--Botton CSS-- > .container {
+      text-align: center;
+      margin-top: 360px;
+    }
+    .btn {
+      border: 2px solid #198f3c;
+      background: whitesmoke;
+      opacity: 80%;
+      padding: 10px 20px;
+      font-size: 25px;
+      font-family: "montserrat";
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.8s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn1 {
+      position: absolute;
+      margin-top: 15em;
+      margin-left: 0.5em;
+      padding: 10px;
+    }
+    .btn1,
+    .btn2 {
+      color: #47aeee;
+      width: 10em;
+    }
+    .btn2 {
+      position: absolute;
+      margin-top: 18em;
+      padding: 10px;
+      left: 13.5em;
+      width: 8em;
+    }
+
+    .btn1:hover,
+    .btn2:hover {
+      color: #fff;
+    }
+    .btn::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: teal;
+      z-index: -1;
+      transition: 0.8s;
+    }
+    .btn1::before {
+      top: 0;
+      border-radius: 0 0 50% 50%;
+    }
+    .btn2::before {
+      bottom: 0;
+      border-radius: 50% 50% 0 0;
+    }
+    .btn1:hover::before,
+    .btn2:hover::before {
+      height: 180%;
+    }
+    #contact-pg {
+      background: #262626;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-info {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #2f3542;
+      padding: 0 20px;
+      margin: 0 10px;
+      width: calc(33% - 20px);
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .card-icon {
+      font-size: 28px;
+      background: #ff6348;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      line-height: 60px !important;
+      border-radius: 50%;
+      transition: 0.3s linear;
+    }
+
+    .card:hover .card-icon {
+      background: none;
+      color: #ff6348;
+      transform: scale(1.6);
+    }
+
+    .card p {
+      margin-top: 20px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      max-height: 0;
+      opacity: 0;
+      transition: 0.3s linear;
+    }
+
+    .card:hover p {
+      max-height: 40px;
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 550px) {
+      .contact-info {
+        flex-direction: column;
+      }
+      .btn2 {
+        top: 2.5em;
+        left: 0em;
+      }
+    }
+    .card {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px 0;
+    }
+
+    .icons img {
+      display: block;
+      height: 50px;
+      width: 50px;
+      padding: 18px;
+    }
+    .roomId {
+      position: relative;
+      top: 34em;
+      height: 40px;
+      width: 250px;
+      left: -20px;
+      border-style: solid;
+      border-radius: 10px;
+      outline: none;
+      padding: 2px 3px 0px 9px;
+      border-color: teal;
+      font-size: auto;
+      font-weight: bold;
+      font-family: poppins;
+      margin-left: 47px;
+    }
+    .Join-id:focus,
+    .Join-id:valid {
+      background-image: url("proceed.svg");
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+  </style>
+  <body>
+    <div class="navbar">
+      <a class="logo" href="#"> PORTAL</a>
+      <ul class="nav">
+        <li><a href="#home"></a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/logout">LogOut</a></li>
+      </ul>
+    </div>
+    <section class="banner-area" id="home">
+      <div class="container">
+        <a href="/<%= roomId %>"
+          ><button class="btn btn1">Create Meeting</button></a
+        >
+        <form action="/enter" method="POST" class="form-enter">
+          <input
+            type="text"
+            class="roomId"
+            name="roomId"
+            placeholder="Enter Meeting ID"
+            required
+          />
+          <button type="submit" class="btn btn2">Join Meeting</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="about-area" id="about">
+      <div class="text-part">
+        <h1>About</h1>
+        <p>
+          Portal is a video conferencing Web application that allows video
+          conferencing to hold team meetings, share ideas, and check in with
+          each other.The Features that make it even more interactive for users
+          is that screen projection,whiteboarding,attendee management, support
+          for hosting public conferences and webinars,email invitations and
+          reminders.It supports 2 way communication : peer-to-peer which is
+          compatible for short-term communication,but cloud based communication
+          makes it more reliable and efficient as it has more security features.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-area" id="contact">
+      <div id="contact-pg" class="text-part">
+        <div class="contact-info">
+          <div class="card">
+            <i class="card-icon far fa-envelope"></i>
+            <p>Portalfficial@gmail.com</p>
+          </div>
+
+          <div class="card">
+            <i class="card-icon fas fa-phone"></i>
+            <p>+00000000000</p>
+          </div>
+
+          <div class="card">
+            <i class="card-icon fas fa-map-marker-alt"></i>
+            <p>182,Palo Alto,CA</p>
+          </div>
+        </div>
+      </div>
+      <div class="icons">
+        <span>
+          <a href=""><img src="twitter.png" alt="twitter" /></a>
+        </span>
+        <span>
+          <a href=""><img src="fb.png" alt="twitter" /></a>
+        </span>
+        <span>
+          <a href=""><img src="github2.png" alt="twitter" /></a>
+        </span>
+        <span>
+          <a href=""><img src="linkedin.png" alt="twitter" /></a>
+        </span>
+      </div>
+    </section>
+  </body>
+</html>
